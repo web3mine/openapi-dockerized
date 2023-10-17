@@ -1,5 +1,5 @@
-name: 'OpenAPI Dockerized'
-description: 'Builds OpenAPI specs and pushes them to your favorite S3 compatible API (e.g. DigitalOcean Spaces, AWS S3, etc)'
+name: 'OpenAPI Dockerized build Action'
+description: 'Builds OpenAPI specs and pushes them to your favorite S3 API (e.g. DigitalOcean Spaces, AWS S3, etc)'
 inputs:
   build-roots:
     description: "A space delimited array of OpenAPI spec roots that would build into separate html files (e.g. '<specdir>/API.yaml <specdir>/AnotherAPI.yaml')"
@@ -7,7 +7,7 @@ inputs:
     default: ''
 outputs:
   urls:
-    description: "A space delimited list of URLs of the build&uploaded OpenAPI specs
+    description: "A space delimited list of URLs of the build&uploaded OpenAPI specs"
 runs:
   using: 'docker'
   image: 'docker://stolen/openapi-dockerized:latest'
