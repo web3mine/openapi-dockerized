@@ -4,6 +4,12 @@ set -e
 echo "Building some OpenAPI specs for you..."
 vertag=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 30)
 
+
+# Check if DOC_VERSION environment variable is set and not empty
+if [[ ! -z "$DOC_VERSION" ]]; then
+    vertag=$DOC_VERSION
+fi
+
 aws_endpoint=$AWS_ENDPOINT
 if [ $aws_endpoint != http* ]
 then
