@@ -3,6 +3,7 @@ set -e
 
 echo "Building some OpenAPI specs for you..."
 vertag=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 30)
+outputUrls=""
 
 
 # Check if DOC_VERSION environment variable is set and not empty
