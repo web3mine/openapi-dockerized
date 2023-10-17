@@ -7,8 +7,13 @@ vertag=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 30)
 
 # Check if DOC_VERSION environment variable is set and not empty
 if [[ ! -z "$DOC_VERSION" ]]; then
+    echo "Overriding version with $DOC_VERSION"
     vertag=$DOC_VERSION
+else
+    echo "Using generated version: $vertag"
 fi
+
+echo ""
 
 aws_endpoint=$AWS_ENDPOINT
 if [ $aws_endpoint != http* ]
@@ -34,3 +39,6 @@ do
   while [ $ln -gt 0 ]; do printf '=%.0s'; ((ln--));done;
   echo ""
 done
+
+echo "Done generating and uploading OpenAPI specs"
+echo ""
